@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "github.com/grpc-example/subscription";
+
+package subscription;
+
+service MembershipService {
+    rpc GetMembership(Membership) returns (Membership) {}
+}
+
+message Membership {
+    string guid = 1;
+    string name = 2;
+}
+
+// step to create package subscription
+// - pilih syntax "proto3"
+// - create service / interface membership (Membership) 
+// - create struct / message Membership
+// - create optiongo_package agar bisa di export
+// - set package name (subscription)
+// - generate protoc file / protoc buff 
+//   protoc --go_out=paths=source__relative:. --go-grpc_out=paths=source_relative:. subscription/subscription.proto
